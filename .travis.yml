@@ -3,34 +3,7 @@ language: c
 services:
   - docker
 
-
-
-# This is a hook to help us introduce "soft" errors on our process
-matrix:
-  allow_failures:
-    - env: ALLOW_SOFT_FAILURE_HERE=true
-
-before_install:
-  - source .travis/utils.sh
-
-# Install dependencies for all, once
-#
-install:
-  - echo test
-
-
-
-# Setup notification system
-#
-notifications:
-  webhooks: https://app.fossa.io/hooks/travisci
-
-
-
-# Define the stage sequence and conditionals
-#
 stages:
-  # Mandatory runs, we always want these executed
   - name: Code quality, linting, syntax, code style
 
 jobs:
@@ -38,4 +11,4 @@ jobs:
     - stage: Code quality, linting, syntax, code style
 
       name: Run shellchecking on BASH
-      script: shellcheck --format=gcc $(find . -name '*.sh.in' -not -iwholename '*.git*')
+      script: echo test
