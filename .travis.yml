@@ -3,6 +3,10 @@ language: c
 services:
   - docker
 
+matrix:
+  allow_failures:
+    - env: ALLOW_SOFT_FAILURE_HERE=true
+
 stages:
   - name: Code quality, linting, syntax, code style
 
