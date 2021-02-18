@@ -3,13 +3,6 @@ language: c
 services:
   - docker
 
-
-
-# This is a hook to help us introduce "soft" errors on our process
-matrix:
-  allow_failures:
-    - env: ALLOW_SOFT_FAILURE_HERE=true
-
 before_install:
   - source .travis/utils.sh
 
@@ -679,3 +672,4 @@ jobs:
       name: Trigger deb and rpm package build
       script: .travis/trigger_package_generation.sh "[Build latest]"
       after_failure: post_message "TRAVIS_MESSAGE" "<!here> Failed to trigger deb and rpm package build during nightly release" "${NOTIF_CHANNEL}"
+
